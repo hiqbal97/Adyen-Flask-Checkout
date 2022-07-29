@@ -1,0 +1,60 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+{% block title %}
+Adyen Dropin
+{% endblock %}
+
+
+{% block content %}
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="/static/img/favicon.ico" width="30" height="30" alt="">
+    </div>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Sessions</a>
+      </li>
+      <li class="nav-item"></li>
+      <a class="nav-link" href="/old">Checkout</a>
+      <a class="nav-link" href="/mods">Modifications</a>
+    </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/5.15.0/adyen.js"
+     integrity="sha384-vMZOl6V83EY2UXaXsPUxH5Pt5VpyLeHpSFnANBVjcH5l7yZmJO0QBl3s6XbKwjiN"
+     crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+     href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/5.15.0/adyen.css"
+     integrity="sha384-Dm1w8jaVOWA8rxpzkxA41DIyw5VlBjpoMTPfAijlfepYGgLKF+hke3NKeU/KTX7t"
+     crossorigin="anonymous">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">Adyen Checkout</h1>
+
+      <p class="lead">This is Drop-in</p>
+
+      <div id="dropin-container"></div>
+      
+
+    </div>
+  </div>
+</div>
+
+<script id="client-key" type="application/json">{{ client_key|tojson }}</script>
+<script src="{{ url_for('static', filename='js/config.js') }}"></script>
+
+{% endblock %}

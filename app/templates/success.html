@@ -1,0 +1,48 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+
+{% block title %}
+Adyen Checkout
+{% endblock %}
+
+
+{% block content %}
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="/static/img/favicon.ico" width="30" height="30" alt="">
+    </div>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Sessions</a>
+      </li>
+      <li class="nav-item"></li>
+      <a class="nav-link" href="/old">Checkout</a>
+      <a class="nav-link" href="/mods">Modifications</a>
+    </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">Thank you!</h1>
+
+      <p class="lead">Your payment was successful! Here is your order number: {{ ref }}</p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
